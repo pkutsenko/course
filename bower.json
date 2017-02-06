@@ -1,0 +1,20 @@
+{
+  "name": "course",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Pavlo Kutsenko"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/pkutsenko/course",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1"
+  }
+}

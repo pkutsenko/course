@@ -6,6 +6,7 @@ var bodyParser  = require("body-parser");
 var Express = require('express')
 var app = new Express()
 app.use(bodyParser.json());
+
 var port = 3000
 var connection = mysql.createConnection({
   host     : 'localhost',
@@ -16,21 +17,22 @@ var connection = mysql.createConnection({
 connection.connect();
 //connection.end();
 
-app.get('/posts', function (req, res) {
+app.get('/api/posts', function (req, res) {
   connection.query('SELECT * FROM posts', function(err, rows, fields) {
     if (err) throw err;
     res.send(JSON.stringify(rows))
   });
 })
 
-app.post('/posts', function (req, res) {
+app.post('/api/posts', function (req, res) {
+  console.log(req.body);
   connection.query('INSERT INTO posts(id,title,content,date) VALUES (null, ?, ?, ?)', [req.body.title, req.body.content, req.body.date], function(err, rows, fields) {
     if (err) throw err;
     res.send(JSON.stringify(rows))
   });
 })
 
-app.get('/posts/:id', function (req, res) {
+app.get('/api/posts/:id', function (req, res) {
   var id = req.params.id;
   connection.query('SELECT * FROM posts WHERE id=?', [id], function(err, rows, fields) {
     if (err) throw err;
@@ -38,13 +40,22 @@ app.get('/posts/:id', function (req, res) {
   });
 })
 
-app.put('/posts/:id', function (req, res) {
+app.put('/api/posts/:id', function (req, res) {
   var id = req.params.id;
   connection.query('UPDATE posts SET title = ?,content = ?,date = ?  WHERE id = ?', [req.body.title, req.body.content, req.body.date, id], function(err, rows, fields) {
     if (err) throw err;
     res.send(JSON.stringify(rows))
   });
 })
+
+
+app.use('/bower_components', Express.static(path.join(__dirname, '/bower_components')));
+app.use('/src', Express.static(path.join(__dirname, '/src')));
+app.use('/jspm_packages', Express.static(path.join(__dirname, '/jspm_packages')));
+app.use('/build.js', Express.static(path.join(__dirname, '/build.js')));
+app.use('/build.map.js', Express.static(path.join(__dirname, '/build.map.js')));
+app.use('/config.js', Express.static(path.join(__dirname, '/config.js')));
+app.use('/main.js', Express.static(path.join(__dirname, '/main.js')));
 
 app.use(function (req, res) {
   fs.readFile(path.join(__dirname, '/index.html'), (err, indexData) => {

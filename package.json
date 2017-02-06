@@ -13,7 +13,19 @@
     "body-parser": "^1.16.0",
     "express": "^4.14.1",
     "fs": "0.0.1-security",
+    "jspm-bower-endpoint": "^0.3.2",
     "mysql": "^2.13.0",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "jspm": "^0.16.52"
+  },
+  "jspm": {
+    "dependencies": {},
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
   }
 }
