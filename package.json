@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test mocha --require test/setup.js --compilers js:babel-register --recursive --reporter progress || true"
   },
   "author": "",
   "license": "ISC",
@@ -13,12 +13,20 @@
     "body-parser": "^1.16.0",
     "express": "^4.14.1",
     "fs": "0.0.1-security",
+    "jquery": "^3.1.1",
     "jspm-bower-endpoint": "^0.3.2",
     "mysql": "^2.13.0",
     "path": "^0.12.7"
   },
   "devDependencies": {
-    "jspm": "^0.16.52"
+    "babel": "^6.5.2",
+    "babel-preset-env": "^1.1.8",
+    "chai": "^3.5.0",
+    "jsdom": "^9.10.0",
+    "jspm": "^0.16.52",
+    "mocha": "^3.2.0",
+    "sinon": "^1.17.7",
+    "sinon-chai": "^2.8.0"
   },
   "jspm": {
     "dependencies": {},

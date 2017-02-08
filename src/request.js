@@ -3,11 +3,10 @@ import $ from 'jquery'
 let request = {
   getPosts (callback) {
     $.getJSON('/api/posts', function (res) {
-      console.log(res);
       if (typeof callback === 'function') {
         callback(res)
       }
-    });
+    }, 'json');
   },
   getPost (id, callback) {
     $.getJSON('/api/posts/' + id, function (res) {
