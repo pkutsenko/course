@@ -1,4 +1,4 @@
-import request from 'src/request.js'
+import request from './request'
 import $ from 'jquery'
 
 /* request.getPosts()

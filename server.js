@@ -51,6 +51,8 @@ app.put('/api/posts/:id', function (req, res) {
 
 app.use('/bower_components', Express.static(path.join(__dirname, '/bower_components')));
 app.use('/src', Express.static(path.join(__dirname, '/src')));
+app.use('/dist', Express.static(path.join(__dirname, '/dist')));
+app.use('/css', Express.static(path.join(__dirname, '/css')));
 app.use('/jspm_packages', Express.static(path.join(__dirname, '/jspm_packages')));
 app.use('/build.js', Express.static(path.join(__dirname, '/build.js')));
 app.use('/build.map.js', Express.static(path.join(__dirname, '/build.map.js')));

@@ -4,7 +4,9 @@ To start the project run command below
 ```
 npm start
 ```
-use jspm for SystemJS module loader
+Help links
 ```
-https://medium.com/@chrisdwheatley/getting-started-with-jspm-systemjs-d6f2560b7eb4#.rmwpw5a21
+https://github.com/dlmanning/gulp-sass
+http://frontender.info/gulp-browserify-starter-faq/
+http://egorsmirnov.me/2015/05/25/browserify-babelify-and-es6.html
 ```
